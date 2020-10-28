@@ -1,0 +1,35 @@
+@textfont: 'Montserrat', sans-serif;
+@headingFont: 'Roboto Slab', serif;
+
+.navbar{
+    background-color: #4B5A67 !important;
+    min-height: 70px;
+    ul{
+        li{
+            margin-left: 10px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            max-width: 120px;
+            a{
+                font-family: @headingFont;
+                font-size: 18px;
+                line-height: 35px;
+                letter-spacing: .5px;
+                transition-duration: .5s;
+                &:hover{
+                    color:black;
+                    background-color: #fff;
+                    border-radius: 10px;
+                }
+            }
+            #signin{
+                background-color: #858B8F;
+                border-radius: 10px;
+            }
+            #register{
+                background-color: #F58674;
+                border-radius: 10px;
+            }
+        }
+    }
+}
