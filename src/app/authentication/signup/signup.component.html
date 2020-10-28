@@ -50,10 +50,10 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-at"></i></div>
                             </div>
-                            <input type="email" ngModel #email="ngModel" name="email" required class="form-control"
+                            <input type="email" ngModel #email="ngModel" name="email" email required class="form-control"
                                 placeholder="Email">
                         </div>
-                        <small class="text-danger" *ngIf="!email.valid && email.touched">Enter Email</small>
+                        <small class="text-danger" *ngIf="!email.valid && email.touched">Enter Valid Email It is Requried</small>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -86,7 +86,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-phone"></i></div>
                             </div>
-                            <input type="text" ngModel #phone='ngModel' name="phone" required class="form-control"
+                            <input type="number" ngModel #phone='ngModel' name="phone" required class="form-control"
                                 placeholder="Contact Number">
                         </div>
                         <small class="text-danger" *ngIf="!phone.valid && phone.touched">Enter Phone Number</small>
@@ -98,7 +98,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
-                            <input type="text" ngModel #dob='ngModel' name="dob" required class="form-control"
+                            <input type="date" ngModel #dob='ngModel' name="dob" required class="form-control"
                                 placeholder="Date Of Birth ">
                         </div>
                         <small class="text-danger" *ngIf="!dob.valid && dob.touched">Enter Date Of Birth</small>
@@ -134,7 +134,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-map"></i></div>
                             </div>
-                            <input type="text" ngModel #pin='ngModel' name="pin" required class="form-control"
+                            <input type="number" ngModel #pin='ngModel' name="pin" required class="form-control"
                                 placeholder="Pincode">
                         </div>
                         <small class="text-danger" *ngIf="!pin.valid && pin.touched">Enter Your Zip Code</small>
