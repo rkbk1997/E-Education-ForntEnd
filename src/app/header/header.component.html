@@ -23,11 +23,20 @@
           <li class="nav-item active">
             <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="">Enrollment</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active" *ngIf="auth.userrole == 'admin' ">
+            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="">Admin</a>
+          </li>
+          <li class="nav-item active" *ngIf="!auth.isloggin">
             <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="signin" routerLink="/login">&nbsp;<i class="fa fa-key fa-lg"></i>&nbsp;SignIn</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item active" *ngIf="!auth.isloggin">
             <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register" routerLink="/register">&nbsp;<i class="fa fa-user fa-lg"></i>&nbsp;Register</a>
+          </li>
+          <li class="nav-item active" *ngIf="auth.isloggin">
+            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show"  style="cursor:pointer;">Profile</a>
+          </li>
+          <li class="nav-item active" *ngIf="auth.isloggin">
+            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register" style="cursor:pointer;" (click)="logout()">&nbsp;<i class="fa fa-user fa-lg"></i>&nbsp;Logout</a>
           </li>
       </ul>
     </div>

@@ -18,4 +18,27 @@ export class AuthService {
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     })
   }
+  loginStudent(body){
+    return this.http.post(environment.apiurl +'/login' , body ,{
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    })
+  }
+
+  logout(){
+    return this.http.get(environment.apiurl +'/logout',{
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    })
+  }
+
+  isAuthentiated():any{
+    return this.http.get(environment.apiurl +'/user',{
+      observe: 'body',
+      withCredentials: true,
+      headers: new HttpHeaders().append('Content-Type', 'application/json')
+    })
+  }
 }

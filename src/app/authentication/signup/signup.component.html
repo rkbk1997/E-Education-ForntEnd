@@ -6,6 +6,12 @@
 <div class="register">
     <div class="container">
         <h2>Register</h2>
+        <div class="alert alert-success text-center" role="alert" *ngIf="successMessage === 'Successfully Register'">
+            {{successMessage}}
+        </div>
+        <div class="alert alert-danger text-center" role="alert" *ngIf="successMessage === 'This User Already Register'">
+            {{successMessage}}
+        </div>
         <form #form='ngForm' (ngSubmit)="onSubmit(form.value)">
             <div class="row d-flex">
                 <div class="col-md-6 col-sm-12">
@@ -50,10 +56,11 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-at"></i></div>
                             </div>
-                            <input type="email" ngModel #email="ngModel" name="email" email required class="form-control"
-                                placeholder="Email">
+                            <input type="email" ngModel #email="ngModel" name="email" email required
+                                class="form-control" placeholder="Email">
                         </div>
-                        <small class="text-danger" *ngIf="!email.valid && email.touched">Enter Valid Email It is Requried</small>
+                        <small class="text-danger" *ngIf="!email.valid && email.touched">Enter Valid Email It is
+                            Requried</small>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -74,10 +81,11 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-key"></i></div>
                             </div>
-                            <input type="password" ngModel #pass='ngModel' name="password" required
-                            class="form-control" placeholder="Repeat Password">
-                    </div>
-                    <small class="text-danger" *ngIf="!pass.valid && pass.touched">Plz Confirm Password</small>
+                            <input type="password" ngModel #pass='ngModel' name="password" required class="form-control"
+                                placeholder="Repeat Password" (focus)='onfocus()'>
+                        </div>
+                        <small class="text-danger" *ngIf="!pass.valid && pass.touched">Plz Confirm Password</small>
+                        <small class="text-danger">{{passwordErr}}</small>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -87,9 +95,10 @@
                                 <div class="input-group-text"><i class="fa fa-phone"></i></div>
                             </div>
                             <input type="number" ngModel #phone='ngModel' name="phone" required class="form-control"
-                                placeholder="Contact Number">
+                                placeholder="Contact Number" (focus)='onfocus()'>
                         </div>
                         <small class="text-danger" *ngIf="!phone.valid && phone.touched">Enter Phone Number</small>
+                        <small class="text-danger">{{phoneErr}}</small>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
@@ -142,7 +151,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
-                    <input type="checkbox" required>&nbsp;Accpet All The<a href="">Term And Condition</a>
+                    <input type="checkbox" ngModel name="check" checked required>&nbsp;Accpet All The<a href="">Term And
+                        Condition</a>
                 </div>
                 <div class="col-md-12 col-sm-12">
                     <input type="submit" [disabled]="!form.valid" class="btn btn-danger mb-5 mt-3" value="Register">
