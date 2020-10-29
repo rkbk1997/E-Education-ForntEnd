@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path:"" , component:HomeComponent },
-  { path:"course" , component:CourseComponent, canActivate:[AuthGuard]}
+  { path:"course" , component:CourseComponent}
 ];
 
 @NgModule({
