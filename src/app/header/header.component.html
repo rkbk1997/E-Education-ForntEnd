@@ -1,49 +1,75 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark pl-5 pr-5">
-    <a class="navbar-brand" href="#"><img src="assets/images/logo1.png" class="img-fluid" alt=""></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#">About</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='course'>Course</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="">News</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="">Support</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="">Enrollment</a>
-          </li>
-          <li class="nav-item active" *ngIf="auth.userrole == 'admin' ">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="">Admin</a>
-          </li>
-          <li class="nav-item active" *ngIf="!auth.isloggin">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="signin" routerLink="/login">&nbsp;<i class="fa fa-key fa-lg"></i>&nbsp;SignIn</a>
-          </li>
-          <li class="nav-item active" *ngIf="!auth.isloggin">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register" routerLink="/register">&nbsp;<i class="fa fa-user fa-lg"></i>&nbsp;Register</a>
-          </li>
-          <li class="nav-item active" *ngIf="auth.isloggin">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show"  style="cursor:pointer;">Profile</a>
-          </li>
-          <li class="nav-item active" *ngIf="auth.isloggin">
-            <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register" style="cursor:pointer;" (click)="logout()">&nbsp;<i class="fa fa-user fa-lg"></i>&nbsp;Logout</a>
-          </li>
-      </ul>
-    </div>
-  </nav>
+  <a class="navbar-brand" href="#"><img src="assets/images/logo1.png" class="img-fluid" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/"
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='about'
+        routerLinkActive="active">About</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='contact'
+        routerLinkActive="active">Contact</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='course'
+          routerLinkActive="active">Course</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='news'
+        routerLinkActive="active">News</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='support'
+        routerLinkActive="active">Support</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/enrollment"
+        routerLinkActive="active" >Enrollment</a>
+      </li>
+      <li class="nav-item " *ngIf="auth.admin">
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse.show" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Admin
+          </a>
+          <div class="dropdown-menu" data-toggle="collapse" data-target=".navbar-collapse.show" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='/admin/course'>Add Course</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='/admin/news'>Add News</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" href="#">View Enrollment</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" href="#">View User</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item " *ngIf="!auth.isloggin">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="signin" routerLink="/login"
+          routerLinkActive="active">&nbsp;<i class="fa fa-key fa-lg"></i>&nbsp;SignIn</a>
+      </li>
+      <li class="nav-item " *ngIf="!auth.isloggin">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register"
+          routerLink="/register" routerLinkActive="active">&nbsp;<i class="fa fa-user fa-lg"></i>&nbsp;Register</a>
+      </li>
+      <li class="nav-item " *ngIf="auth.isloggin">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show"
+          style="cursor:pointer;">Profile</a>
+      </li>
+      <li class="nav-item " *ngIf="auth.isloggin">
+        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register"
+          style="cursor:pointer;" (click)="logout()" routerLinkActive="active">&nbsp;<i
+            class="fa fa-user fa-lg"></i>&nbsp;Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  <script>
-    $('.navbar-nav>li>a').on('click', function(){
+<script>
+  $('.navbar-nav>li>a').on('click', function () {
     $('.navbar-collapse').collapse('hide');
-});
-  </script>
+  });
+</script>

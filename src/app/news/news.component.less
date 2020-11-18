@@ -1,0 +1,63 @@
+@textfont: 'Montserrat', sans-serif;
+@headingFont: 'Roboto Slab', serif;
+.newstop{
+    padding: 20px;
+    h1{
+        color: #fff;
+        font-family: 'Roboto Slab', serif;
+    }
+}
+.news{
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .newnotic{
+        .card{
+            border: none;
+            -webkit-box-shadow: 10px 10px 10px 1px #E6E6E6;
+            box-shadow: 1px 1px 10px 1px #E6E6E6;
+            .card-header{
+                background-color: rgb(80, 76, 76);
+                color: #fff;
+                font-family: @headingFont;
+                letter-spacing: 1px;
+                font-size: 20px;
+            }
+            .card-body{
+                ul{
+                    li{
+                        border-bottom: 1px dotted gray;
+                        padding: 2px;
+                    }
+                }
+            }
+        }
+    }
+    .member{
+        .card{
+            border: none;
+            -webkit-box-shadow: 10px 10px 10px 1px #E6E6E6;
+            box-shadow: 1px 1px 10px 1px #E6E6E6;
+            .card-header{
+                background-color: rgb(80, 76, 76);
+                color: #fff;
+                font-family: @headingFont;
+                letter-spacing: 1px;
+                font-size: 20px;
+            }
+            .card-body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                img{
+                    height: 150px;
+                    min-width: 150px;
+                    padding: 10px;
+                    border: 10px solid gray;
+                }
+            }
+        }
+    }
+}

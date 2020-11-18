@@ -1,0 +1,96 @@
+<div class="coursetop container">
+    <h1>Add Course</h1>
+</div>
+
+<div class="addcourse">
+    <div class="ml-3 mr-3">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            Add Course
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ADD Course</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="form-group mb-2">
+                                <label>Enter Course Title</label>
+                                <input type="text" class="form-control" name="courseTitle" placeholder="Course Title"
+                                    required>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label>Enter Course Durations</label>
+                                <input type="text" class="form-control" name="courseDurations"
+                                    placeholder="Couse Durations" required>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label>Enter Course Fee</label>
+                                <input type="text" class="form-control" name="courseFee" placeholder="Couse Fee"
+                                    required>
+                            </div>
+                            <div class="form-group mb-2">
+                                <label>Select Course Image</label><br>
+                                <input type="file" name="pic" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-------------------------------------->
+        <div class="mytable mt-4 mat-elevation-z8 p-4">
+            <mat-form-field style="width: 25%;">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search By App">
+              </mat-form-field>
+            
+              <mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="Course Title">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Course Title </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element['Course Title']}} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="Course Durations">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Course Durations </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element['Course Durations']}} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="Course Fee">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Course Fee </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{element['Course Fee']}} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="Course Image">
+                  <mat-header-cell *matHeaderCellDef > Course Image </mat-header-cell>
+                  <mat-cell *matCellDef="let element"><img src={{element.imgurl}} alt="" class="img-fluid p-2" style="width: 50px;height: 50px;"></mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="Edit">
+                  <mat-header-cell *matHeaderCellDef > Edit </mat-header-cell>
+                  <mat-cell *matCellDef="let element"><i class="fa fa-edit fa-lg" role="button"  data-toggle="modal" data-target="#exampleModal" (click)='logData(row)'></i></mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="Delete">
+                  <mat-header-cell *matHeaderCellDef > Delete </mat-header-cell>
+                  <mat-cell *matCellDef="let element"><i class="fa fa-trash fa-lg" role="button"></i></mat-cell>
+                </ng-container>
+            
+                
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            
+              <mat-paginator [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons></mat-paginator>
+            
+        </div>
+    </div>
+</div>

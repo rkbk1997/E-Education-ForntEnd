@@ -1,1 +1,38 @@
-<p>course works!</p>
+<div class="container coursetop">
+    <h1>Courses</h1>
+</div>
+<div class="mycard">
+    <div class="container">
+        <div class="row d-flex w-100 mb-4 m-0">
+            <div class="col-md-4">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-eye fa-lg"></i></div>
+                    </div>
+                    <select class="form-control">
+                        <option value="0">View Course Rate Wise</option>
+                        <option value="1">1st ⭐</option>
+                        <option value="2">2nd ⭐⭐</option>
+                        <option value="3">3rd ⭐⭐⭐</option>
+                        <option value="4">4th ⭐⭐⭐⭐</option>
+                        <option value="5">5th ⭐⭐⭐⭐⭐</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fa fa-search fa-lg"></i></div>
+                    </div>
+                    <input type="search" class="form-control" id="inlineFormInputGroup" placeholder="Search Here...">
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex w-100 m-0 ">
+            <div class="col-md-4" *ngFor="let cou of course">
+                <app-course-card course_title={{cou.course_title}} duations={{cou.duration}} img={{cou.imgsrc}}
+                    fee={{cou.fee}}></app-course-card>
+            </div>
+        </div>
+    </div>
+</div>

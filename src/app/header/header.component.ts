@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
         console.log(res);
         this.auth.isloggin = false;
         this.auth.userrole = ""
+        this.auth.admin = false;
         this.router.navigate(['/'])
       }
     )

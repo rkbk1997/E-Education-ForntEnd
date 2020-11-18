@@ -1,0 +1,48 @@
+<div class="container newstop">
+    <h1>News</h1>
+</div>
+<div class="news">
+    <div class="container">
+        <div class="row w-100 m-0">
+            <div class="col-md-8">
+                <div *ngFor="let new of news">
+                    <app-news-card img={{new.img1}} course_title={{new.course_title}} new_detail={{new.new_detail}} started_date={{new.started_date}}></app-news-card>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="member mb-5">
+                    <div class="card animate__animated animate__zoomIn slower">
+                        <div class="card-header">
+                          Our E-Education Member
+                        </div>
+                        <div class="card-body">
+                            <img src="../../assets/images/e1.jpg" alt="">
+                            <img src="../../assets/images/e1.jpg" alt="">
+                            <img src="../../assets/images/e1.jpg" alt="">
+                            <img src="../../assets/images/e1.jpg" alt="">
+
+
+
+                        </div>
+                      </div>
+                </div>
+                <div class="newnotic">
+                    <div class="card">
+                        <div class="card-header">
+                          News Notice
+                        </div>
+                        <div class="card-body">
+                                <marquee behavior="scroll" scrollamount="2" onmouseover="this.stop(); " onmouseout="this.start(); " direction="up">
+                                    <div *ngFor="let new of news">
+                                        <ul>
+                                            <li><i class="fa fa-newspaper-o"></i>&nbsp;{{new.course_title}}&nbsp;<i class="fa fa-calendar"></i>&nbsp;{{new.started_date}}</li>
+                                        </ul>
+                                    </div>
+                                </marquee>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
