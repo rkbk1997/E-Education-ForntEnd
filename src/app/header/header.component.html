@@ -5,7 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-    <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item ">
         <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/"
           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
@@ -36,7 +36,7 @@
       </li>
       <li class="nav-item " *ngIf="auth.admin">
         <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" data-toggle="collapse" data-target=".navbar-collapse.show" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Admin
           </a>
           <div class="dropdown-menu" data-toggle="collapse" data-target=".navbar-collapse.show" aria-labelledby="dropdownMenuLink">
@@ -56,8 +56,15 @@
           routerLink="/register" routerLinkActive="active">&nbsp;<i class="fa fa-user fa-lg"></i>&nbsp;Register</a>
       </li>
       <li class="nav-item " *ngIf="auth.isloggin">
-        <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show"
-          style="cursor:pointer;">Profile</a>
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user fa-lg"></i>
+          </a>
+          <div class="dropdown-menu" data-toggle="collapse" data-target=".navbar-collapse.show" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='/profile'>Profile</a>
+            <a class="dropdown-item" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='/profile'>Active Courses</a>
+          </div>
+        </div>
       </li>
       <li class="nav-item " *ngIf="auth.isloggin">
         <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="register"

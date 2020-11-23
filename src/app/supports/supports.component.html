@@ -67,33 +67,43 @@
                   </div>
             </div>
             <div class="col-md-4">
+              <div class="loader" *ngIf="loader">
+                <img src="../../assets/images/loadder.gif" class="img-fluid" alt="">
+            </div>
                 <div class="card animate__animated animate__fadeInDown slower">
                     <div class="card-header">
                       Have Any Issue Write Here....
                     </div>
+                    <form #form="ngForm" (ngSubmit)="submitSupport(form.value)">
                     <div class="card-body">
                      <div class="form-group mb-3">
                         <label>Name</label>
-                        <input type="text" class="form-control">
+                        <input type="text" ngModel name="name" #name='ngModel' class="form-control" required>
+                        <div class="text-danger" *ngIf="!name.valid && name.touched">Enter Your Name</div>
                      </div>
                      <div class="form-group mb-3">
                         <label>Email</label>
-                        <input type="text" class="form-control">
+                        <input type="text" ngModel name="email" #email='ngModel' email class="form-control" required>
+                        <div class="text-danger" *ngIf="!email.valid && email.touched">Enter Your Valid Email Address</div> 
                      </div>
                      <div class="form-group mb-3">
                         <label>Contact Number</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" ngModel name="phone"  #phone='ngModel' required>
+                        <div class="text-danger" *ngIf="!phone.valid && phone.touched">Enter Your Phone Number</div>
                      </div>
                      <div class="form-group mb-3">
                         <label>Address</label>
-                        <textarea class="form-control" name="" id="" cols="30" rows="2"></textarea>
+                        <textarea class="form-control" ngModel name="address" #address='ngModel' cols="30" rows="2" required></textarea>
+                        <div class="text-danger" *ngIf="!address.valid && address.touched">Enter Your Address </div>
                      </div>
                      <div class="form-group mb-3">
                         <label>Description</label>
-                        <textarea class="form-control" name="" id="" cols="30" rows="2"></textarea>
+                        <textarea class="form-control" ngModel name="des" #des='ngModel' cols="30" rows="2" required></textarea>
+                        <div class="text-danger" *ngIf="!des.valid && des.touched">What Do U Want Plz Enter</div>
                      </div>
-                     <button class="btn btn-danger"><i class="fa fa-send"></i>&nbsp;&nbsp;Send</button>
+                     <button class="btn btn-danger" [disabled]='!form.valid'><i class="fa fa-send"></i>&nbsp;&nbsp;Send</button>
                     </div>
+                  </form>
                   </div>
             </div>
         </div>

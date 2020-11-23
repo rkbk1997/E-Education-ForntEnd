@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { AddnewsComponent } from './addnews/addnews.component';
@@ -23,7 +23,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   exports:[
     MatPaginatorModule,

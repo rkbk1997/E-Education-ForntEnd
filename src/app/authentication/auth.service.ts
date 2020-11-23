@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   isloggin = false;
-  userrole: string = null;
+  userrole: any;
   admin = false;
   user = false;
   token: string = null;

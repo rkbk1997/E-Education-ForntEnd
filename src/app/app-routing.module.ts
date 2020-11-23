@@ -9,6 +9,7 @@ import { EnrollmentComponent } from './enrollment/enrollment.component';
 import { HomeComponent } from './home/home.component';
 import { HomeguardGuard } from './homeguard.guard';
 import { NewsComponent } from './news/news.component';
+import { ProfileComponent } from './profile/profile.component';
 import { SupportsComponent } from './supports/supports.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'about' , component: AboutComponent },
   { path: 'support' , component: SupportsComponent },
   { path: 'contact' , component: ContactComponent },
+  { path: 'profile' , component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'enrollment' , component: EnrollmentComponent, canActivate: [AuthGuard]}
 ];
 

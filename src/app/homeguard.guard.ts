@@ -12,10 +12,9 @@ export class HomeguardGuard implements CanActivate {
     const authflag = new Subject<boolean>();
     this.auth.isAuthentiated().subscribe(
       (authenticated) => {
-        console.log(authenticated);
         if (authenticated.status) {
           this.auth.isloggin = true;
-          this.auth.userrole = authenticated.body.userrole;
+          this.auth.userrole = authenticated.body.username;
           if (authenticated.body.userrole === 'admin'){
             this.auth.admin = true;
           }

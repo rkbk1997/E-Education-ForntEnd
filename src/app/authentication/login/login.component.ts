@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(value): any{
-    console.log(value);
     this.auth.loginStudent(value).subscribe((res) => {
       if (res.username) {
         this.usernameerr = true;
@@ -34,12 +33,16 @@ export class LoginComponent implements OnInit {
         this.auth.isloggin = true;
         if (res.userrole === 'admin') {
           this.auth.admin = true;
+          this.auth.userrole = value.username;
+          console.log(this.auth.userrole)
+
         }
         if(res.userrole === 'user'){
           this.auth.user = true;
+          this.auth.userrole = value.username;
+          console.log(this.auth.userrole)
         }
         this.router.navigate(['/']);
-        console.log(res);
       }
     });
   }

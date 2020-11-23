@@ -1,0 +1,56 @@
+@textfont: 'Montserrat', sans-serif;
+@headingFont: 'Roboto Slab', serif;
+.profiletop{
+    padding: 20px;
+    h1{
+        color: #fff;
+        font-family: 'Roboto Slab', serif;
+    }
+}
+.profile{
+    background-color: #fff;
+    .profileinner{
+        background-color: #fff;
+        // opacity: .7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 200px;
+        img{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+        }
+        
+    }
+  .container{
+      .card{
+          margin-top: 20px;
+          margin-bottom: 30px;
+          border: none;
+          -webkit-box-shadow: 10px 10px 10px 1px #E6E6E6;
+          box-shadow: 1px 1px 10px 1px #E6E6E6;
+          .card-header{
+              background-color: #746E6E;
+              color: #fff;
+              font-family: @headingFont;
+              font-size: 25px;
+              line-height: 30px;
+              letter-spacing: 1px;
+          }
+          .card-body{
+              table{
+                  font-family: @textfont;
+                  font-size: 15px;
+              }
+              .btn{
+                  font-family: @textfont;
+                  letter-spacing: 1px;
+              }
+          }
+      }
+  }
+    
+    
+}

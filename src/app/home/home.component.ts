@@ -13,11 +13,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.auth.isAuthentiated().subscribe(
       res =>{
-        console.log(res)
         if(res.status){
           this.auth.isloggin = true;
-          this.auth.userrole = res.body.userrole
-          console.log(res.body)
+          this.auth.userrole = res.body.username;
           if(res.body.role === 'admin'){
             this.auth.admin = true
           }

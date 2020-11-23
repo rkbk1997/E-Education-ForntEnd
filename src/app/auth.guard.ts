@@ -12,13 +12,15 @@ export class AuthGuard implements CanActivate {
     let authflag = new Subject<boolean>();
     this.auth.isAuthentiated().subscribe(
       (authenticated) => {
-        console.log(authenticated);
         if (authenticated.status) {
           this.auth.isloggin = true;
-          this.auth.userrole = authenticated.body.userrole
+          this.auth.userrole = authenticated.body.role;
           if(authenticated.body.role === 'admin'){
             this.auth.admin = true;
+            // this.auth.userrole = res.username;
+
           }
+          this.auth.userrole = authenticated.username;
           authflag.next(true);
         }
       },
